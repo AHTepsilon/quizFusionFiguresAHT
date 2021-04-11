@@ -25,4 +25,14 @@ public class Triangle
 		app.fill(r, g, b);
 		app.triangle(x1, y1, x2, y2, x3, y3);
 	}
+	
+	public void move()
+	{
+		
+	}
+	
+	public void bounce()
+	{
+		
+	}
 }

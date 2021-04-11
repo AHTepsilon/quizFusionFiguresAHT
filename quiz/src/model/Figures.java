@@ -59,6 +59,7 @@ public abstract class Figures
 	
 	public void bounce()
 	{
+		
 		if(posX == 500)
 		{
 			posX = 200;
