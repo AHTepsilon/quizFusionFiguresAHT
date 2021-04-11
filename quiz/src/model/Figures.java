@@ -8,8 +8,9 @@ public abstract class Figures
 	float dirX, dirY;
 	int r, g, b;
 	int size;
+	int num;
 
-	public Figures(int posX, int posY, float dirX, float dirY, int r, int g, int b, int size) 
+	public Figures(int posX, int posY, float dirX, float dirY, int r, int g, int b, int size, int num) 
 	{
 		this.posX = posX;
 		this.posY = posY;
@@ -19,6 +20,7 @@ public abstract class Figures
 		this.g = g;
 		this.b = b;
 		this.size = size;
+		this.num = num;
 	}
 	
 	public abstract void paint(PApplet app);
@@ -59,25 +61,25 @@ public abstract class Figures
 	{
 		if(posX == 500)
 		{
-			posX = 499;
+			posX = 200;
 			dirX = -2;
 		}
 		
 		if(posX == 0)
 		{
-			posX = 1;
+			posX = 200;
 			dirX = 2;
 		}
 		
 		if(posY == 500)
 		{
-			posY = 499;
+			posY = 200;
 			dirY = -2;
 		}
 		
 		if(posY == 0)
 		{
-			posY = 1;
+			posY = 200;
 			dirY = 2;
 		}
 	}

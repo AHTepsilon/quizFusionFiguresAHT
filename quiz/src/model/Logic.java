@@ -23,7 +23,6 @@ public class Logic
 		
 		archiveText = app.loadStrings("C:\\Users\\AHT\\Desktop\\Universidad\\Program\\Workspace\\quiz\\data\\archive");
 		
-		
 	}
 	
 	public void importText()
@@ -34,15 +33,25 @@ public class Logic
 			{
 				squares.add(new Square((int)app.random(400), (int)app.random(400), (int)app.random(-2, 2), 
 						(int)app.random(-2, 2), (int)app.random(255), (int)app.random(255), (int)app.random(255), 
-						(int)app.random(50, 100)));
+						(int)app.random(50, 100), (int)app.random(30)));
 				
-				System.out.println("it works");
+				System.out.println("square");
+				
+				squares.get(i).paint(app);
+				squares.get(i).move(app);
+				squares.get(i).bounce();
 			}
-			if(archiveText[i].contains("IDCircle"))
+			if(archiveText[i].contains("IDcircle"))
 			{
 				circles.add(new Circle((int)app.random(400), (int)app.random(400), (int)app.random(-2, 2), 
 						(int)app.random(-2, 2), (int)app.random(255), (int)app.random(255), (int)app.random(255), 
-						(int)app.random(50, 100)));
+						(int)app.random(50, 100), (int)app.random(30)));
+			
+				System.out.println("circle");
+				
+				circles.get(i).paint(app);
+				circles.get(i).move(app);
+				circles.get(i).bounce();
 			}
 		}
 	}
