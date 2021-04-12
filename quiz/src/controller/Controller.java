@@ -65,8 +65,7 @@ public class Controller extends PApplet
 	{
 		if(figureType == true)
 		{
-			Circle current = new Circle(mouseX, mouseY, (int) random(-2, 2), (int) random(-2, 2), 
-					(int) random(255), (int) random(255), (int) random(255), (int) random(10, 50), (int) random(30));
+			Circle current = new Circle(mouseX, mouseY, (int) random(5, 30), (int) random(-2, 2), (int) random(30));
 			
 			logical.getCircles().add(current);
 			figureType = false;
@@ -74,17 +73,11 @@ public class Controller extends PApplet
 		
 		else 
 		{
-			Square current = new Square(mouseX, mouseY, (int) random(-2, 2), (int) random(-2, 2), 
-					(int) random(255), (int) random(255), (int) random(255), (int) random(10, 50), (int) random(30));
+			Square current = new Square(mouseX, mouseY, (int) random(5, 30), (int) random(-2, 2), (int) random(30));
 			
 			logical.getSquares().add(current);
 			figureType = true;
 		}
-	}
-	
-	public void mousePressed()
-	{
-		
 	}
 
 }

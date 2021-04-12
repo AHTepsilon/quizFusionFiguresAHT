@@ -3,22 +3,18 @@ import processing.core.PApplet;
 
 public abstract class Figures 
 {
-	int figureType;
 	int posX, posY;
+	int figureType;
 	float dirX, dirY;
-	int r, g, b;
-	int size;
 	int num;
+	int size;
 
-	public Figures(int posX, int posY, float dirX, float dirY, int r, int g, int b, int size, int num) 
+	public Figures(int posX, int posY, int size, int dir, int num) 
 	{
 		this.posX = posX;
 		this.posY = posY;
-		this.dirX = dirX;
-		this.dirY = dirY;
-		this.r = r;
-		this.g = g;
-		this.b = b;
+		this.dirX = dir;
+		this.dirY = dir;
 		this.size = size;
 		this.num = num;
 	}
@@ -27,34 +23,8 @@ public abstract class Figures
 	
 	public void move(PApplet app)
 	{
-		int randomNumb = (int)app.random(4);
-		switch (randomNumb)
-		{
-		case 0:
-			dirX = 2;
-			break;
-		case 1:
-			dirX = -2;
-			break;
-		case 2:
-			dirY = 2;
-			break;
-		case 3:
-			dirY = -2;
-			break;
-		case 4:
-			dirX = 2;
-			dirY = 2;
-			break;
-		}
-		
 		posX += dirX;
 		posY += dirY;
-	}
-	
-	public void fuse()
-	{
-		
 	}
 	
 	public void bounce()
@@ -116,31 +86,7 @@ public abstract class Figures
 	public void setDirY(float dirY) {
 		this.dirY = dirY;
 	}
-
-	public int getR() {
-		return r;
-	}
-
-	public void setR(int r) {
-		this.r = r;
-	}
-
-	public int getG() {
-		return g;
-	}
-
-	public void setG(int g) {
-		this.g = g;
-	}
-
-	public int getB() {
-		return b;
-	}
-
-	public void setB(int b) {
-		this.b = b;
-	}
-
+	
 	public int getSize() {
 		return size;
 	}

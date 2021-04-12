@@ -5,16 +5,20 @@ import processing.core.PApplet;
 public class Square extends Figures
 {
 
-	public Square(int posX, int posY, float dirX, float dirY, int r, int g, int b, int size, int num) 
+	public Square(int posX, int posY, int dir, int size, int num) 
 	{
-		super(posX, posY, dirX, dirY, r, g, b, size, num);
+		super(posX, posY, dir, size, num);
 	}
 
 	@Override
 	public void paint(PApplet app) 
 	{
-		app.fill(r, g, b);
+		app.fill(app.random(255), app.random(255), app.random(255));
 		app.square(posX, posY, size);
+		
+		app.fill(0);
+		app.textSize(10);
+		app.text(num, posX, posY);
 	}
 
 }

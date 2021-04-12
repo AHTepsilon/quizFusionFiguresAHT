@@ -1,4 +1,5 @@
 package view;
+import controller.Controller;
 import model.Logic;
 import processing.core.PApplet;
 
@@ -16,14 +17,12 @@ public class Main extends PApplet
 		size(500, 500);
 	}
 	
-	Logic logicFunctions;
-	
-	int randomNum;
+	Controller controller;
 	
 	@Override
 	public void setup() //void Start
 	{
-		logicFunctions = new Logic(this);
+		controller = new Controller();
 	} 
 	
 	@Override
@@ -31,32 +30,19 @@ public class Main extends PApplet
 	{		
 		background(255);
 		
+		textAlign(CENTER);
 		rectMode(CENTER);
-		
-		logicFunctions.importText();
+
+		controller.paint();
 	}
 	
 	public void mousePressed()
 	{
+		controller.stopMove(mouseX, mouseY);
 		if(mouseButton == RIGHT)
-		{
-			randomNum = (int)random(0, 1);
-			
-			if(randomNum == 0)
 			{
-				for(int i = 0; i < logicFunctions.getSquares().size(); i++)
-				{
-					System.out.println("it one");
-				}
+				controller.newFig(mouseX, mouseY);
 			}
-			else if(randomNum == 1)
-			{
-				for(int i = 0; i < logicFunctions.getCircles().size(); i++)
-				{
-					System.out.println("it two");
-				}
-			}
-		}
 	}
 
 }

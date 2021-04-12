@@ -12,8 +12,8 @@ public class Logic
 	private ArrayList<String> words;
 	
 	PApplet app;
-	String[] archiveText;
 	String[] textLines;
+	String[] archiveText;
 	
 	public Logic(PApplet app) 
 	{
@@ -23,17 +23,16 @@ public class Logic
 		circles = new ArrayList<>();
 		triangles = new ArrayList<>();
 		words = new ArrayList<>();
-		
-		archiveText = app.loadStrings("C:\\Users\\AHT\\Desktop\\Universidad\\Program\\Workspace\\quiz\\data\\archive");
-		
 	}
 	
-	@SuppressWarnings("static-access")
 	public void readValuesFromTXT()
 	{
+		//the text file isn't being loaded correctly
+		archiveText = app.loadStrings("data/textData.txt");
+		
 		for(int i = 0; i < archiveText.length; i++)
 		{
-			textLines = app.split(archiveText[i], " ");
+			textLines = PApplet.split(archiveText[i], " ");
 			
 			for (int j = 0; j < textLines.length; j++)
 			{
@@ -47,18 +46,15 @@ public class Logic
 		
 		for(int i = 0; i < archiveText.length; i++)
 		{
-			if(words.get(i).equals("IDsquare"))
+			if(archiveText[i].contains("IDsquare"))
 			{
 				int posX = Integer.parseInt(words.get(i + 1));
 				int posY = Integer.parseInt(words.get(i + 2));
-				int dirX = Integer.parseInt(words.get(i + 3));
-				int dirY = Integer.parseInt(words.get(i + 4));
-				int r = Integer.parseInt(words.get(i + 5));
-				int g = Integer.parseInt(words.get(i + 6));
-				int b = Integer.parseInt(words.get(i + 7));
-				int size = Integer.parseInt(words.get(i + 8));
+				int dir = Integer.parseInt(words.get(i + 3));
+				int size = Integer.parseInt(words.get(i + 4));
+				int num = Integer.parseInt(words.get(i + 5));
 				
-				Square square = new Square(posX, posY, dirX, dirY, r, g, b, size, (int) app.random(0, 30));
+				Square square = new Square(posX, posY, dir, size, num);
 				squares.add(square);
 			}
 			
@@ -66,14 +62,11 @@ public class Logic
 			{
 				int posX = Integer.parseInt(words.get(i + 1));
 				int posY = Integer.parseInt(words.get(i + 2));
-				int dirX = Integer.parseInt(words.get(i + 3));
-				int dirY = Integer.parseInt(words.get(i + 4));
-				int r = Integer.parseInt(words.get(i + 5));
-				int g = Integer.parseInt(words.get(i + 6));
-				int b = Integer.parseInt(words.get(i + 7));
-				int size = Integer.parseInt(words.get(i + 8));
+				int dir = Integer.parseInt(words.get(i + 3));
+				int size = Integer.parseInt(words.get(i + 4));
+				int num = Integer.parseInt(words.get(i + 5));
 				
-				Circle circle = new Circle(posX, posY, dirX, dirY, r, g, b, size, (int) app.random(0, 50));
+				Circle circle = new Circle(posX, posY, dir, size, num);
 				circles.add(circle);
 			}
 		}
@@ -104,7 +97,7 @@ public class Logic
 		for(int i = 0; i < triangles.size(); i++)
 		{
 			triangles.get(i).paint(app);
-			triangles.get(i).move();
+			triangles.get(i).move(app);
 			triangles.get(i).bounce();
 		}
 	}
